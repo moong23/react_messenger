@@ -1,5 +1,4 @@
-// const CracoAlias = require("react-app-alias");
-const CracoAlias = require("craco-alias");
+const { CracoAliasPlugin } = require("react-app-alias");
 
 module.exports = {
   typescript: {
@@ -7,7 +6,8 @@ module.exports = {
   },
   plugins: [
     {
-      plugin: CracoAlias,
+      // plugin: CracoAlias,
+      plugin: CracoAliasPlugin,
       options: {
         source: "tsconfig",
         baseUrl: "./src",

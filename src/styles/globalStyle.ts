@@ -49,7 +49,10 @@ body {
  .App {
   width: 37.5rem;
   height: 81.2rem;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
  }
  
  code {

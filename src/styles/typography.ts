@@ -1,6 +1,6 @@
-import { DefaultTheme, css } from "styled-components";
+import { css } from "styled-components";
 
-export const typography: DefaultTheme = {
+export const typography = {
   Body: css`
     font-size: 1.7rem;
   `,

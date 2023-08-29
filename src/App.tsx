@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Mainpage from "./pages";
+import Mainpage from "./pages/Mainpage";
+import BottomBar from "./components/Bottombar";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
             element={<Mainpage />}
           />
         </Routes>
+        <BottomBar />
       </BrowserRouter>
     </div>
   );

@@ -36,6 +36,21 @@ body {
     }
   }
  }
+
+ #root{
+  background-color: #e5e6eb;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .App {
+  width: 37.5rem;
+  height: 81.2rem;
+  position: relative;
+ }
  
  code {
    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

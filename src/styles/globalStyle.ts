@@ -10,7 +10,7 @@ ${normalize}
 html {
    font-size: 10px;
    box-sizing: border-box;
-   font-family: 'SUIT Variable', sans-serif;
+   font-family: 'Pretendard', sans-serif;
 }
 
 body {

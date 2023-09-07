@@ -10,7 +10,7 @@ export const typography = {
   `,
   Caption: css`
     font-size: 1.4rem;
-    font-weight: 400;
+    font-weight: 300;
   `,
   Caption2: css`
     font-size: 1.3rem;

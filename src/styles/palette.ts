@@ -6,5 +6,6 @@ export const palette = {
   blue2: "#1877F2",
   blue3: "#E7F3FF",
   green: "#5AD539",
-  white: "#FFFFFF",
+  white1: "#FFFFFF",
+  white2: "#FFFFFFB2",
 };

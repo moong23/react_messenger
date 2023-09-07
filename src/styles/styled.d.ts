@@ -11,7 +11,8 @@ declare module "styled-components" {
       blue2: string;
       blue3: string;
       green: string;
-      white: string;
+      white1: string;
+      white2: string;
     };
     typography: {
       Body: any;

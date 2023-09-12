@@ -15,4 +15,8 @@ export const typography = {
   Caption2: css`
     font-size: 1.3rem;
   `,
+  Time: css`
+    font-size: 1.4rem;
+    font-weight: 500;
+  `,
 };

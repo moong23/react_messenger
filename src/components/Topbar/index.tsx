@@ -12,13 +12,11 @@ import videoIconSrc from "@/assets/images/video.svg";
 
 /**
  *
- * @param type
+ * @pathname
  * 1 : 채팅방
  * 2 : 채팅방 목록
  * 3 : setting
- * @returns
  */
-
 const Topbar = () => {
   const [renderType, setRenderType] = useState(0);
   const { pathname } = useLocation();
@@ -26,18 +24,14 @@ const Topbar = () => {
   // 라우팅된 주소에 따라 renderType 변경
   useEffect(() => {
     switch (pathname) {
-      case "/":
-        setRenderType(1);
-        break;
       case "/chatlist":
         setRenderType(2);
         break;
       case "/setting":
         setRenderType(3);
         break;
-      // 0으로 오면 안돼요
       default:
-        setRenderType(0);
+        setRenderType(1);
         break;
     }
   }, [pathname]);

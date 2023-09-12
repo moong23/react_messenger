@@ -1,8 +1,12 @@
+import { useRecoilState } from "recoil";
 import {
   EndContentContainer,
   MidContentContainer,
   TopbarInnerContainer,
 } from "./content.element";
+import { talkState } from "@/states";
+
+import alienSrc from "@/assets/images/alien.png";
 
 interface IMidContent {
   name: string;
@@ -21,6 +25,11 @@ const TopbarContent = ({
   midContent,
   rightIcon,
 }: ITCProps) => {
+  const [talker, setTalker] = useRecoilState(talkState);
+
+  const handleTalkerChange = () => {
+    setTalker((talker) => 3 - talker);
+  };
   return (
     <TopbarInnerContainer>
       <img
@@ -30,26 +39,40 @@ const TopbarContent = ({
         height={leftSize}
       />
       {midContent ? (
-        <MidContentContainer>
-          <img
-            src={midContent.iconSrc}
-            alt="profile"
-            width={36}
-            height={36}
-          />
-          <div className="textDiv">
-            <span className="subText">{midContent.name}</span>
-            <span className="caption">현재 활동 중</span>
-          </div>
-        </MidContentContainer>
+        talker === 1 ? (
+          <MidContentContainer onClick={handleTalkerChange}>
+            <img
+              src={midContent.iconSrc}
+              alt="profile"
+              width={36}
+              height={36}
+            />
+            <div className="textDiv">
+              <span className="subText">{midContent.name}</span>
+              <span className="caption">현재 활동 중</span>
+            </div>
+          </MidContentContainer>
+        ) : (
+          <MidContentContainer onClick={handleTalkerChange}>
+            <img
+              src={alienSrc}
+              alt="profile"
+              width={36}
+              height={36}
+            />
+            <div className="textDiv">
+              <span className="subText">이하경</span>
+              <span className="caption">현재 활동 중</span>
+            </div>
+          </MidContentContainer>
+        )
       ) : (
         <>Chat</>
       )}
       <EndContentContainer>
         {rightIcon.map((iconSrc, idx) => (
-          <div>
+          <div key={iconSrc + idx}>
             <img
-              key={iconSrc + idx}
               alt="right top icon"
               src={iconSrc}
             />

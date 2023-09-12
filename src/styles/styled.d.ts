@@ -19,6 +19,7 @@ declare module "styled-components" {
       SubText: any;
       Caption: any;
       Caption2: any;
+      Time: any;
     };
   }
 }

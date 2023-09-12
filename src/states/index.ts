@@ -8,3 +8,8 @@ export const talkState = atom({
   key: "talkState",
   default: 1,
 });
+
+export const chatToggleState = atom({
+  key: "chatToggleState",
+  default: false,
+});

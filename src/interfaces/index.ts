@@ -6,8 +6,8 @@ export interface IUserData {
 }
 
 export interface IChatData {
-  id: number; // 채팅 아이디
   from: 1 | 2; // 1 : 본인, 2 : 상대방
+  like: boolean; // 좋아요 여부
   content: string; // 채팅 내용
   createdAt: string; // 채팅 시간
 }

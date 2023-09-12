@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Mainpage from "./pages/Mainpage";
+import BottomBar from "./components/Bottombar";
+import Topbar from "./components/Topbar";
+import TBA from "./pages/TBA";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Topbar />
+        <Routes>
+          <Route
+            path="/"
+            element={<TBA />}
+          />
+          <Route
+            path="/chat/:chatId"
+            element={<Mainpage />}
+          />
+          <Route
+            path="chatlist"
+            element={<TBA />}
+          />
+        </Routes>
+        <BottomBar />
+      </BrowserRouter>
     </div>
   );
 }

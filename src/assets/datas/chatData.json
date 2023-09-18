@@ -21,7 +21,7 @@
       },
       {
         "from": 1,
-        "like": true,
+        "like": false,
         "content": "뭐래",
         "createdAt": "2023-09-07T08:07:42.807Z"
       }

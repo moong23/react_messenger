@@ -16,6 +16,7 @@ const Mainpage = () => {
   const mainpageRef = useRef<HTMLDivElement>(null);
   const [chatRefresh, setChatRefresh] = useRecoilState(chatToggleState);
   const { chatId } = useParams();
+  const [chatLength, setChatLength] = useState(0);
 
   const setLocalStorage = () => {
     if (localStorage.getItem(`chatData_${chatId}`) === null) {
@@ -25,16 +26,51 @@ const Mainpage = () => {
           chatData.find((el) => el.id === Number(chatId))?.chatData
         )
       );
+    } else {
+      localStorage.removeItem(`chatData_${chatId}`);
+      localStorage.setItem(
+        `chatData_${chatId}`,
+        JSON.stringify(
+          chatData.find((el) => el.id === Number(chatId))?.chatData
+        )
+      );
     }
   };
 
+  const handleLike = (id: string) => {
+    let target = chatData
+      .find((el) => el.id === Number(chatId))
+      ?.chatData.find((el) => el.createdAt === id)!;
+    target.like = true;
+    setChatData(
+      chatData.map((el) => {
+        if (el.id === Number(chatId)) {
+          return {
+            ...el,
+            chatData: el.chatData.map((el) => {
+              if (el.createdAt === id) {
+                return target;
+              } else {
+                return el;
+              }
+            }),
+          };
+        } else {
+          return el;
+        }
+      })
+    );
+    setLocalStorage();
+  };
+
+  // chatData 길이가 바뀔 때마다 스크롤을 맨 아래로 내림
   useEffect(() => {
     // 이유는 모르겠는데, setTimeout에 넣어야 scrollHeight가 제대로 작동함
     const scrollTimeout = setTimeout(() => {
       mainpageRef.current?.scrollTo(0, mainpageRef.current.scrollHeight);
     }, 0);
     return () => clearTimeout(scrollTimeout);
-  }, [chatData]);
+  }, [chatRefresh]);
 
   useEffect(() => {
     if (chatId !== undefined) {
@@ -95,6 +131,7 @@ const Mainpage = () => {
                     text={assertedChat.content}
                     time={assertedChat.createdAt}
                     liked={assertedChat.like}
+                    setLiked={() => handleLike(assertedChat.createdAt)}
                   />
                 </ChatLineWrapper>
               </div>

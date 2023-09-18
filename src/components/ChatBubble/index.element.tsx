@@ -42,3 +42,10 @@ export const ChatBubbleContainer = styled.div<ICBCProps>`
       }
     `}
 `;
+export const ChatBubbleHoverContent = styled.div`
+  position: relative;
+  top: 0.2rem;
+  left: 0.7rem;
+  font-size: 1.3rem;
+  color: ${(props) => props.theme.palette.gray1};
+`;

@@ -8,6 +8,7 @@ export const ChatBubbleContainer = styled.div<ICBCProps>`
   max-width: 263px;
   width: fit-content;
   white-space: pre-wrap;
+  word-break: break-all;
   padding: 1rem 1.4rem;
   border-radius: 2rem;
   position: relative;
